@@ -1,18 +1,10 @@
-const { ApolloServer, gql } = require("apollo-server");
+const { ApolloServer } = require("apollo-server");
+const typeDefs = require("./schema");
 const bikes = require("./data.json");
-
-const typeDefs = gql`
-	type Bike {
-		data: String
-	}
-	type Query {
-		bikes: [Bike]
-	}
-`;
 
 const resolvers = {
 	Query: {
-		bikes: () => bikes,
+		bikes: () => [bikes],
 	},
 };
 
