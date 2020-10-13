@@ -3,10 +3,7 @@ const bikes = require("./data.json");
 
 const typeDefs = gql`
 	type Bike {
-		model_cd: GraphQLObjectType
-		month_cd: GraphQLObjectType
-		model_yr_cd: GraphQLObjectType
-		factory_cd: GraphQLObjectType
+		data: String
 	}
 	type Query {
 		bikes: [Bike]
