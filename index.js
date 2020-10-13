@@ -1,9 +1,12 @@
 const { ApolloServer, gql } = require("apollo-server");
+// const bikes = require("./data.json");
 
 const typeDefs = gql`
 	type Bike {
-		model: String
-		model_yr: String
+		model_cd: GraphQLObjectType
+		month_cd: GraphQLObjectType
+		model_yr_cd: GraphQLObjectType
+		factory_cd: GraphQLObjectType
 	}
 	type Query {
 		bikes: [Bike]
@@ -12,52 +15,53 @@ const typeDefs = gql`
 
 const bikes = [
 	{
-		model: "RadCity Stepthru",
-		model_yr: "2011",
-		manu_mth: 12,
-		manu_yr: "2014",
-		version: "1",
-		unique: "004706",
+		model_cd: {
+			R: "RadRover",
+			M: "RadMini",
+			w: "RadWagon",
+			6: "RadCity 16",
+			9: "RadCity 19",
+			S: "RadCity Stepthru",
+			B: "RadBurro",
+			H: "RadRhino",
+			C: "Large Cargo Box",
+			K: "Small Cargo Box",
+			P: "Pedicab",
+			F: "Flatbed",
+			T: "Truckbed",
+			N: "Insulated Cargo Box",
+			Y: "Runner",
+		},
 	},
 	{
-		model: "Runner",
-		model_yr: "2011",
-		manu_mth: 6,
-		manu_yr: "2014",
-		version: "1",
-		unique: "004706",
+		month_cd: {
+			1: "January",
+			2: "January",
+			3: "March",
+			4: "April",
+			5: "May",
+			6: "June",
+			7: "July",
+			8: "August",
+			9: "September",
+			O: "October",
+			N: "November",
+			D: "December",
+		},
 	},
 	{
-		model: "Small Cargo Box",
-		model_yr: "2011",
-		manu_mth: 9,
-		manu_yr: "2014",
-		version: "1",
-		unique: "004706",
+		model_yr_cd: {
+			A: "2018",
+			B: "2019",
+			C: "2020",
+			D: "2021",
+		},
 	},
 	{
-		model: "Flatbed",
-		model_yr: "2011",
-		manu_mth: 10,
-		manu_yr: "2014",
-		version: "1",
-		unique: "004706",
-	},
-	{
-		model: "RadRhino",
-		model_yr: "2011",
-		manu_mth: 11,
-		manu_yr: "2014",
-		version: "1",
-		unique: "004706",
-	},
-	{
-		model: "RadWagon",
-		model_yr: "2011",
-		manu_mth: 12,
-		manu_yr: "2014",
-		version: "1",
-		unique: "004706",
+		factory_cd: {
+			F: "FactoryF",
+			V: "FactoryV",
+		},
 	},
 ];
 
