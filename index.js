@@ -4,12 +4,12 @@ const bikes = require("./data.json");
 
 const resolvers = {
 	Query: {
-		getBikes: () => {
-			return [bikes];
+		bike: (_, args) => {
+			// arg parsing here
+			return { factoryCode: "F" };
 		},
 	},
 };
-console.log("[bikes] ******------>>>>>>", [bikes][0].modelCode[3]["6"]);
 
 const server = new ApolloServer({ typeDefs, resolvers });
 

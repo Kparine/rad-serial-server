@@ -2,31 +2,15 @@ const { gql } = require("apollo-server");
 
 const typeDefs = gql`
 	type Bike {
-		modelCode: [ModelCode!]
-		monthCode: [MonthCode!]
-		yearCode: [YearCode!]
-		factoryCode: [FactoryCode!]
-	}
-
-	type ModelCode {
-		code: String
-	}
-
-	type MonthCode {
-		code: String
-	}
-
-	type YearCode {
-		code: String
-	}
-
-	type FactoryCode {
-		code: String
+		modelCode: String!
+		monthCode: String!
+		yearCode: String!
+		factoryCode: String!
 	}
 
 	type Query {
-		getBikes: [Bike]
+		bike(serialNumber: String!): Bike
 	}
 `;
-
+//
 module.exports = typeDefs;
