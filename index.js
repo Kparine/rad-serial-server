@@ -4,18 +4,57 @@ const bikes = require("./data.json");
 
 const resolvers = {
 	Query: {
-		bike: (_, args) => {
-			// arg parsing here
-			const res = args.serialNumber.split("");
-			const bikeModel = res[0];
-			const modelYear = res[1];
-			const monthCode = res[2];
-			const manufYear = "20" + res[3] + res[4];
-			const factoryCode = res[5];
-			const version = res[6];
-			const unique = res.slice(6, res.length - 1).join("");
+		bikeList: (_, args) => {
+			const input = args.serialNumber;
+			for (let i = 0; i < input.length; i++) {
+				console.log("input[i] ******------>>>>>>", input[i]);
+			}
 
-			return { factoryCode: "F" };
+			const modelCode = input[0];
+			// const yearCode = input[1];
+			// const monthCode = input[2];
+			// const manufYear = "20" + input[3] + input[4];
+			// const factoryCode = input[5];
+			// const version = input[6];
+			// const unique = input.slice(6, input.length - 1).join("");
+
+			const name = bikes.modelCode.find((obj) => {
+				const temp = obj[modelCode];
+				return temp;
+			});
+			const modelName = Object.values(name).toString();
+
+			const month = bikes.monthCode.find((obj) => {
+				const temp = obj[monthCode];
+				return temp;
+			});
+			const monthName = Object.values(month).toString();
+
+			const year = bikes.yearCode.find((obj) => {
+				const temp = obj[yearCode];
+				return temp;
+			});
+			const yearSel = Object.values(year).toString();
+
+			const factory = bikes.factoryCode.find((obj) => {
+				const temp = obj[factoryCode];
+				return temp;
+			});
+			const factorySel = Object.values(factory).toString();
+			let result = [];
+			let res = {
+				modelCode: modelName,
+				yearCode: yearSel,
+				monthCode: monthName,
+				factoryCode: factorySel,
+				manufYear,
+				version,
+				unique,
+			};
+
+			console.log("res ******------>>>>>>", res);
+
+			return res;
 		},
 	},
 };
