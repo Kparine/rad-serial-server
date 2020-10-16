@@ -23,25 +23,25 @@ const resolvers = {
 
 				modelCode = selectValue(
 					bikes.modelCode.find((obj) => {
-						return obj[modelCode];
+						return obj[modelCode] ? obj[modelCode] : "Unknown";
 					})
 				);
 
 				monthCode = selectValue(
 					bikes.monthCode.find((obj) => {
-						return obj[monthCode];
+						return obj[monthCode] ? obj[monthCode] : "Unknown";
 					})
 				);
 
 				yearCode = selectValue(
 					bikes.yearCode.find((obj) => {
-						return obj[yearCode];
+						return obj[yearCode] ? obj[yearCode] : "Unknown";
 					})
 				);
 
 				factoryCode = selectValue(
 					bikes.factoryCode.find((obj) => {
-						return obj[factoryCode];
+						return obj[factoryCode] ? obj[factoryCode] : "Unknown";
 					})
 				);
 
