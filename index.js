@@ -49,7 +49,7 @@ const resolvers = {
 					modelCode,
 					yearCode,
 					monthCode,
-					factoryCode,
+					factory
 					manufYear,
 					version,
 					unique,
