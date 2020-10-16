@@ -7,12 +7,12 @@ const typeDefs = gql`
 		yearCode: String!
 		factoryCode: String!
 		version: String!
-		unique: String!
+		unique: String
 		manufYear: String!
 	}
 
 	type Query {
-		bikeList(serialNumber: [String!]): [Bike]
+		bikes(serialNumber: [String!]): [Bike]
 	}
 `;
 
