@@ -7,7 +7,6 @@ const resolvers = {
 	Query: {
 		bikes: (_, args) => {
 			let input = args.serialNumber;
-			console.log(input)
 			return input.map((x) => {
 				let modelCode = x[0];
 				let yearCode = x[1];
@@ -71,6 +70,6 @@ const server = new ApolloServer({
 	},
 });
 
-server.listen().then(({ url }) => {
-	console.log(`🚀 Server launching on ${url}`);
-});
+server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+	console.log(`🚀 Server ready at ${url}`);
+  });
