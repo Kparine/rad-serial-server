@@ -6,11 +6,14 @@ const typeDefs = gql`
 		monthCode: String!
 		yearCode: String!
 		factoryCode: String!
+		manufYear: String!
+		version: String!
+		unique: String
 	}
 
 	type Query {
-		bike(serialNumber: String!): Bike
+		bikes(serialNumber: [String!]): [Bike]
 	}
 `;
-//
+
 module.exports = typeDefs;
