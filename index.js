@@ -1,5 +1,5 @@
 const { ApolloServer } = require("apollo-server");
-const typeDefs = require("./server/schema");
+const typeDefs = require("./schema/schema");
 const { getPayload } = require("./utils");
 const bikes = require("./data.json");
 
@@ -7,6 +7,7 @@ const resolvers = {
 	Query: {
 		bikes: (_, args) => {
 			let input = args.serialNumber;
+			console.log(input)
 			return input.map((x) => {
 				let modelCode = x[0];
 				let yearCode = x[1];
@@ -23,33 +24,33 @@ const resolvers = {
 
 				modelCode = selectValue(
 					bikes.modelCode.find((obj) => {
-						return obj[modelCode] ? obj[modelCode] : "Unknown";
+						return obj[modelCode];
 					})
 				);
 
 				monthCode = selectValue(
 					bikes.monthCode.find((obj) => {
-						return obj[monthCode] ? obj[monthCode] : "Unknown";
+						return obj[monthCode];
 					})
 				);
 
 				yearCode = selectValue(
 					bikes.yearCode.find((obj) => {
-						return obj[yearCode] ? obj[yearCode] : "Unknown";
+						return obj[yearCode];
 					})
 				);
 
 				factoryCode = selectValue(
 					bikes.factoryCode.find((obj) => {
-						return obj[factoryCode] ? obj[factoryCode] : "Unknown";
+						return obj[factoryCode];
 					})
 				);
 
 				let result = {
-					modelCode,
-					yearCode,
-					monthCode,
-					factory
+					modelCode: modelCode ? modelCode : "Unknown",
+					yearCode: yearCode ? yearCode : "Unknown",
+					monthCode: monthCode ? monthCode : "Unknown",
+					factoryCode: factoryCode ? factoryCode : "Unknown",
 					manufYear,
 					version,
 					unique,

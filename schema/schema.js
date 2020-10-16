@@ -6,9 +6,9 @@ const typeDefs = gql`
 		monthCode: String!
 		yearCode: String!
 		factoryCode: String!
+		manufYear: String!
 		version: String!
 		unique: String
-		manufYear: String!
 	}
 
 	type Query {
