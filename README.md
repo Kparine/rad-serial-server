@@ -1,6 +1,5 @@
 # Rad Power Bikes
 
-<<<<<<< HEAD
 ### Welcome to the Rad Power Bikes Serial Lookup System
 
 ## Install
@@ -23,5 +22,4 @@ https://rad-serial-server.herokuapp.com/
 ## Technologies Utilized:
 
 - ApolloGraphql Server
-=======
->>>>>>> 28e617d8c7e6d99299de860e18b35b6786c109e7
+
